@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ransom Note Pro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Courier+Prime:wght@700&family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="app-body">
+    <div class="window-container">
+        <!-- Top Title Bar -->
+        <header class="title-bar">
+            <div class="traffic-lights">
+                <span class="light-dot light-yellow" title="Minimize"></span>
+                <span class="light-dot light-green" title="Maximize"></span>
+                <span class="light-dot light-red" title="Close"></span>
+            </div>
+            <h1 class="window-title">Ransom Note Pro</h1>
+            <div class="creator-badge">CREATED BY AFTAB MUSRRAF</div>
+        </header>
+
+        <!-- Main Body Content -->
+        <main class="main-content">
+            <!-- Top Section: Preview & Presets -->
+            <div class="top-row">
+                <!-- Left: Preview Canvas & Color Palette -->
+                <div class="left-col">
+                    <!-- Preview Box -->
+                    <div class="preview-card">
+                        <div class="preview-canvas-container" id="previewCanvasContainer">
+                            <div class="ransom-preview-stage" id="previewStage">
+                                <!-- Dynamic Ransom Cutouts render here -->
+                            </div>
+                        </div>
+                        <div class="text-input-strip">
+                            <input type="text" id="noteTextInput" value="RANSOM" placeholder="Type text here..." spellcheck="false" autocomplete="off" />
+                            <button id="btnRandomizePreview" class="btn-icon" title="Re-randomize visual cutouts">🎲</button>
+                        </div>
+                    </div>
+
+                    <!-- Color Palette Section -->
+                    <div class="panel-card color-palette-card">
+                        <div class="card-header">
+                            <div class="card-title">
+                                <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M12 2a4.5 4.5 0 0 0 0 9 4.5 4.5 0 0 1 0 9"></path>
+                                    <circle cx="12" cy="6.5" r="1" fill="currentColor"></circle>
+                                    <circle cx="12" cy="15.5" r="1" fill="currentColor"></circle>
+                                </svg>
+                                <span>Color Palette</span>
+                            </div>
+                            <button id="btnRandomizePalette" class="btn-palette-randomize">
+                                <svg class="btn-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="16 3 21 3 21 8"></polyline>
+                                    <line x1="4" y1="20" x2="21" y2="3"></line>
+                                    <polyline points="21 16 21 21 16 21"></polyline>
+                                    <line x1="15" y1="15" x2="21" y2="21"></line>
+                                    <line x1="4" y1="4" x2="9" y2="9"></line>
+                                </svg>
+                                <span>Randomize</span>
+                            </button>
+                        </div>
+
+                        <!-- Swatches row -->
+                        <div class="swatches-row" id="swatchesContainer">
+                            <!-- Populated dynamically and selectable -->
+                        </div>
+
+                        <!-- Gradient Rainbow Spectrum & Custom Color -->
+                        <div class="palette-bottom-row">
+                            <div class="spectrum-bar" id="spectrumBar">
+                                <div class="spectrum-handle" id="spectrumHandle"></div>
+                            </div>
+
+                            <div class="custom-color-box">
+                                <div class="custom-color-label">Custom Color</div>
+                                <div class="custom-color-row">
+                                    <label class="color-picker-wrapper" title="Click to choose custom color">
+                                        <input type="color" id="nativeColorPicker" value="#FF6B6B" />
+                                        <span class="color-circle" id="customColorDot" style="background-color: #FF6B6B;"></span>
+                                    </label>
+                                    <input type="text" id="customColorHex" value="#FF6B6B" maxlength="7" spellcheck="false" />
+                                    <button class="eyedropper-btn" id="eyedropperBtn" title="Pick color">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="m14 7 3 3-9.5 9.5a2.12 2.12 0 0 1-1.5.6H4v-2c0-.55.22-1.05.6-1.4L14 7Z"></path>
+                                            <path d="M18 4l2 2-3 3-2-2 3-3Z"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Presets Grid -->
+                <div class="right-col">
+                    <div class="panel-card presets-card">
+                        <h2 class="section-title">Presets</h2>
+                        <div class="presets-grid" id="presetsGrid">
+                            <!-- Card 1 -->
+                            <div class="preset-card active" data-preset="vintage_newspaper">
+                                <div class="preset-thumb-wrapper">
+                                    <img src="assets/presets/vintage_newspaper.png" alt="Vintage Newspaper" class="preset-thumb" />
+                                </div>
+                                <div class="preset-info">
+                                    <span class="preset-name">Vintage<br>Newspaper</span>
+                                </div>
+                            </div>
+
+                            <!-- Card 2 -->
+                            <div class="preset-card" data-preset="magazine_glossy">
+                                <div class="preset-thumb-wrapper">
+                                    <img src="assets/presets/magazine_glossy.png" alt="Magazine Glossy" class="preset-thumb" />
+                                </div>
+                                <div class="preset-info">
+                                    <span class="preset-name">Magazine<br>Glossy</span>
+                                </div>
+                            </div>
+
+                            <!-- Card 3 -->
+                            <div class="preset-card" data-preset="grunge_craft">
+                                <div class="preset-thumb-wrapper">
+                                    <img src="assets/presets/grunge_craft.png" alt="Grunge Craft Paper" class="preset-thumb" />
+                                </div>
+                                <div class="preset-info">
+                                    <span class="preset-name">Grunge Craft<br>Paper</span>
+                                </div>
+                            </div>
+
+                            <!-- Card 4 -->
+                            <div class="preset-card" data-preset="torn_cardboard">
+                                <div class="preset-thumb-wrapper">
+                                    <img src="assets/presets/torn_cardboard.png" alt="Torn Cardboard" class="preset-thumb" />
+                                </div>
+                                <div class="preset-info">
+                                    <span class="preset-name">Torn<br>Cardboard</span>
+                                </div>
+                            </div>
+
+                            <!-- Card 5 -->
+                            <div class="preset-card" data-preset="stencil_spray">
+                                <div class="preset-thumb-wrapper">
+                                    <img src="assets/presets/stencil_spray.png" alt="Stencil Spray" class="preset-thumb" />
+                                </div>
+                                <div class="preset-info">
+                                    <span class="preset-name">Stencil<br>Spray</span>
+                                </div>
+                            </div>
+
+                            <!-- Card 6 -->
+                            <div class="preset-card" data-preset="pop_art_retro">
+                                <div class="preset-thumb-wrapper">
+                                    <img src="assets/presets/pop_art_retro.png" alt="Pop-Art Retro" class="preset-thumb" />
+                                </div>
+                                <div class="preset-info">
+                                    <span class="preset-name">Pop-Art<br>Retro</span>
+                                </div>
+                            </div>
+
+                            <!-- Card 7 -->
+                            <div class="preset-card" data-preset="typewriter_classic">
+                                <div class="preset-thumb-wrapper">
+                                    <img src="assets/presets/typewriter_classic.png" alt="Typewriter Classic" class="preset-thumb" />
+                                </div>
+                                <div class="preset-info">
+                                    <span class="preset-name">Typewriter<br>Classic</span>
+                                </div>
+                            </div>
+
+                            <!-- Card 8 -->
+                            <div class="preset-card" data-preset="random_ransom">
+                                <div class="preset-thumb-wrapper">
+                                    <img src="assets/presets/random_ransom.png" alt="Random Ransom" class="preset-thumb" />
+                                </div>
+                                <div class="preset-info">
+                                    <span class="preset-name">Random<br>Ransom</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Section: Layout & Transform + Pattern Randomization -->
+            <div class="middle-row panel-card">
+                <!-- Left: Layout & Transform -->
+                <div class="transform-col">
+                    <div class="card-title">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <line x1="12" y1="2" x2="12" y2="6"></line>
+                            <line x1="12" y1="18" x2="12" y2="22"></line>
+                            <line x1="2" y1="12" x2="6" y2="12"></line>
+                            <line x1="18" y1="12" x2="22" y2="12"></line>
+                        </svg>
+                        <span>Layout & Transform</span>
+                    </div>
+
+                    <!-- Scale Slider -->
+                    <div class="control-row">
+                        <div class="control-label-group">
+                            <span class="ctrl-label">Scale</span>
+                            <div class="ctrl-ticks" id="scaleTicks">
+                                <span class="tick" data-val="50">○ 0.5</span>
+                                <span class="tick active" data-val="100">○ 1.0</span>
+                                <span class="tick" data-val="200">○ 2.0</span>
+                            </div>
+                        </div>
+                        <div class="slider-wrapper">
+                            <input type="range" id="scaleSlider" min="50" max="200" value="100" class="app-range" />
+                            <div class="val-box" id="scaleValBox">100%</div>
+                        </div>
+                    </div>
+
+                    <!-- Rotation Slider -->
+                    <div class="control-row">
+                        <div class="control-label-group">
+                            <span class="ctrl-label">Rotation</span>
+                            <div class="ctrl-ticks" id="rotationTicks">
+                                <span class="tick active" data-val="0">○ 0°</span>
+                                <span class="tick" data-val="45">○ 45°</span>
+                            </div>
+                        </div>
+                        <div class="slider-wrapper">
+                            <input type="range" id="rotationSlider" min="0" max="45" value="0" class="app-range" />
+                            <div class="val-box" id="rotationValBox">0°</div>
+                        </div>
+                    </div>
+
+                    <!-- Grid Size Slider -->
+                    <div class="control-row">
+                        <div class="control-label-group">
+                            <span class="ctrl-label">Grid Size</span>
+                            <div class="ctrl-ticks" id="gridSizeTicks">
+                                <span class="tick" data-val="6">○ 6</span>
+                                <span class="tick active" data-val="12">○ 12</span>
+                                <span class="tick" data-val="24">○ 24</span>
+                            </div>
+                        </div>
+                        <div class="slider-wrapper">
+                            <input type="range" id="gridSizeSlider" min="4" max="36" value="12" class="app-range" />
+                            <div class="val-box" id="gridSizeValBox">12</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Pattern Randomization -->
+                <div class="random-col">
+                    <div class="card-title">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="4" y1="6" x2="16" y2="6"></line>
+                            <line x1="8" y1="18" x2="20" y2="18"></line>
+                            <circle cx="16" cy="6" r="2"></circle>
+                            <circle cx="8" cy="18" r="2"></circle>
+                        </svg>
+                        <span>Pattern Randomization</span>
+                    </div>
+
+                    <div class="toggle-list">
+                        <!-- Toggle 1: Font Size -->
+                        <div class="toggle-item">
+                            <span class="toggle-label"><span class="radio-dot">○</span> Randomize Font Size</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggleRandFontSize" checked />
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+
+                        <!-- Toggle 2: Position -->
+                        <div class="toggle-item">
+                            <span class="toggle-label"><span class="radio-dot">○</span> Randomize Position</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggleRandPos" checked />
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+
+                        <!-- Toggle 3: Angle -->
+                        <div class="toggle-item">
+                            <span class="toggle-label"><span class="radio-dot">○</span> Randomize Angle</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="toggleRandAngle" checked />
+                                <span class="switch-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section: Advanced Animation -->
+            <div class="bottom-row panel-card">
+                <div class="card-title anim-title">
+                    <svg class="card-icon thunder-icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"></path>
+                    </svg>
+                    <span>Advanced Animation</span>
+                </div>
+
+                <div class="anim-grid">
+                    <!-- Column 1: In Animation -->
+                    <div class="anim-col">
+                        <div class="anim-header-row">
+                            <label class="anim-enable-label">
+                                <input type="checkbox" id="checkAnimIn" checked class="custom-checkbox" />
+                                <span class="checkbox-custom"></span>
+                                <span class="anim-name-text">In Animation</span>
+                            </label>
+                            <div class="select-wrapper">
+                                <select id="selectAnimIn" class="app-select">
+                                    <option value="Paper Crumble" selected>Paper Crumble</option>
+                                    <option value="Stop-Motion Pop">Stop-Motion Pop</option>
+                                    <option value="Stamp Down">Stamp Down</option>
+                                    <option value="Cutout Drop">Cutout Drop</option>
+                                    <option value="Slide In">Slide In</option>
+                                    <option value="Typewriter Strike">Typewriter Strike</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="anim-controls">
+                            <!-- Duration -->
+                            <div class="anim-slider-row">
+                                <span class="anim-ctrl-label">Duration</span>
+                                <input type="range" id="animInDurationSlider" min="0.1" max="2.0" step="0.1" value="0.6" class="app-range" />
+                                <div class="val-box" id="animInDurationVal">0.6s</div>
+                            </div>
+                            <!-- Scale In -->
+                            <div class="anim-slider-row">
+                                <span class="anim-ctrl-label">Scale In</span>
+                                <input type="range" id="animInScaleSlider" min="0" max="200" step="5" value="110" class="app-range" />
+                                <div class="val-box" id="animInScaleVal">110%</div>
+                            </div>
+                            <!-- Position [X] -->
+                            <div class="anim-slider-row">
+                                <span class="anim-ctrl-label">Position [X]</span>
+                                <input type="range" id="animInPosSlider" min="-200" max="200" step="5" value="0" class="app-range" />
+                                <div class="val-box" id="animInPosVal">0</div>
+                            </div>
+                            <!-- Opacity In -->
+                            <div class="anim-slider-row">
+                                <span class="anim-ctrl-label">Opacity In</span>
+                                <input type="range" id="animInOpacitySlider" min="0" max="100" step="5" value="0" class="app-range" />
+                                <div class="val-box" id="animInOpacityVal">0%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Out Animation -->
+                    <div class="anim-col">
+                        <div class="anim-header-row">
+                            <label class="anim-enable-label">
+                                <input type="checkbox" id="checkAnimOut" class="custom-checkbox" />
+                                <span class="checkbox-custom"></span>
+                                <span class="anim-name-text">Out Animation</span>
+                            </label>
+                            <div class="select-wrapper">
+                                <select id="selectAnimOut" class="app-select">
+                                    <option value="Paper Crumble" selected>Paper Crumble</option>
+                                    <option value="Fly Away">Fly Away</option>
+                                    <option value="Drop Down">Drop Down</option>
+                                    <option value="Paper Tear">Paper Tear</option>
+                                    <option value="Fade Cut">Fade Cut</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="anim-controls">
+                            <!-- Duration -->
+                            <div class="anim-slider-row">
+                                <span class="anim-ctrl-label">Duration</span>
+                                <input type="range" id="animOutDurationSlider" min="0.1" max="2.0" step="0.1" value="0.6" class="app-range" />
+                                <div class="val-box" id="animOutDurationVal">0.6s</div>
+                            </div>
+                            <!-- Scale Out -->
+                            <div class="anim-slider-row">
+                                <span class="anim-ctrl-label">Scale Out</span>
+                                <input type="range" id="animOutScaleSlider" min="0" max="200" step="5" value="90" class="app-range" />
+                                <div class="val-box" id="animOutScaleVal">90%</div>
+                            </div>
+                            <!-- Position Out [X] -->
+                            <div class="anim-slider-row">
+                                <span class="anim-ctrl-label">Position Out [X]</span>
+                                <input type="range" id="animOutPosSlider" min="-200" max="200" step="5" value="0" class="app-range" />
+                                <div class="val-box" id="animOutPosVal">0</div>
+                            </div>
+                            <!-- Opacity Out -->
+                            <div class="anim-slider-row">
+                                <span class="anim-ctrl-label">Opacity Out</span>
+                                <input type="range" id="animOutOpacitySlider" min="0" max="100" step="5" value="0" class="app-range" />
+                                <div class="val-box" id="animOutOpacityVal">0%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Additional Options -->
+                    <div class="anim-col options-col">
+                        <div class="options-title">Additional Options</div>
+
+                        <div class="option-dropdown-group">
+                            <div class="option-row">
+                                <span class="opt-label">Ease</span>
+                                <div class="select-wrapper">
+                                    <select id="selectEase" class="app-select">
+                                        <option value="Ease-In-Out" selected>Ease-In-Out</option>
+                                        <option value="Linear">Linear</option>
+                                        <option value="Stop-Motion (Posterize 10fps)">Stop-Motion (10fps)</option>
+                                        <option value="Cutout Snap">Cutout Snap</option>
+                                        <option value="Bounce">Bounce</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="option-row">
+                                <span class="opt-label">Direction</span>
+                                <div class="select-wrapper">
+                                    <select id="selectDirection" class="app-select">
+                                        <option value="Left to Right" selected>Left to Right</option>
+                                        <option value="Right to Left">Right to Left</option>
+                                        <option value="Random Order">Random</option>
+                                        <option value="All Together">Together</option>
+                                        <option value="Center Out">Center Out</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Bar -->
+            <div class="actions-strip">
+                <button id="btnGenerate" class="btn-primary-generate">
+                    <span class="btn-sparkle">⚡</span>
+                    <span>GENERATE IN AFTER EFFECTS</span>
+                </button>
+                <button id="btnConvertSelected" class="btn-secondary-action">
+                    <span>CONVERT SELECTED TEXT LAYER</span>
+                </button>
+            </div>
+
+            <!-- Toast Notification / Status Indicator -->
+            <div id="statusToast" class="status-toast hidden">
+                <span id="toastIcon">✨</span>
+                <span id="toastMessage">Ready</span>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <span class="footer-credit">CREATED BY AFTAB MUSRRAF</span>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/CSInterface.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
