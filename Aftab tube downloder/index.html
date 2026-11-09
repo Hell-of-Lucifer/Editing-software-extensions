@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aftab Tube Downloder</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <div class="app-window" id="appWindow">
+        <!-- Window Titlebar -->
+        <header class="window-titlebar">
+            <div class="window-dots">
+                <span class="window-dot dot-amber" title="Minimize"></span>
+                <span class="window-dot dot-white" title="Maximize"></span>
+                <span class="window-dot dot-green" title="Restore"></span>
+            </div>
+            <div class="titlebar-credits">CREATED BY AFTAB MUSRRAF</div>
+        </header>
+
+        <!-- App Body -->
+        <div class="app-body">
+            <!-- Left Sidebar -->
+            <nav class="app-sidebar" aria-label="Main Navigation">
+                <button class="sidebar-btn active" id="btnNavHome" title="Downloader Home">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                </button>
+                <button class="sidebar-btn" id="btnNavHistory" title="Downloads & History">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                </button>
+                <div class="sidebar-spacer"></div>
+                <a href="https://www.youtube.com/@AftabMusrraf/videos" class="sidebar-btn sidebar-yt-btn" id="btnSidebarYouTube" target="_blank" rel="noopener noreferrer" title="Open Aftab Musrraf YouTube Channel in Chrome">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+                <div class="sidebar-status-dot" id="aeStatusDot" title="After Effects Engine Active"></div>
+            </nav>
+
+            <!-- Main Panel -->
+            <main class="app-main">
+                <!-- Main Header -->
+                <section class="main-header">
+                    <div class="header-brand">
+                        <div class="app-icon-badge">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+                            </svg>
+                        </div>
+                        <div class="brand-text">
+                            <h1>Aftab Tube Downloder</h1>
+                            <p>CREATED BY AFTAB MUSRRAF</p>
+                        </div>
+                    </div>
+                    <div class="header-tools">
+                        <div class="badge-ae" id="aeBadge">
+                            <span class="indicator"></span>
+                            <span id="aeStatusText">AE CC 2026 Ready</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Search / URL Input Row -->
+                <section class="search-row">
+                    <div class="url-input-container">
+                        <div class="url-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <input type="text" id="urlInput" placeholder="https://youtu.be/-43v_i8trCU" value="https://youtu.be/-43v_i8trCU" spellcheck="false" autocomplete="off">
+                        <button class="input-clear-btn" id="btnClearUrl" title="Clear URL">✕</button>
+                    </div>
+                    <button class="btn-analyze" id="btnAnalyze">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" stroke-linecap="round"></line>
+                        </svg>
+                        <span>Analyze URL</span>
+                    </button>
+                </section>
+
+                <!-- Content Grid -->
+                <div class="content-grid">
+                    <!-- Left: Video Card -->
+                    <article class="card-preview">
+                        <div class="thumb-container">
+                            <img src="./assets/sample-thumb.jpg" alt="Video Thumbnail" class="thumb-img" id="videoThumb">
+                            <div class="duration-badge" id="videoDuration">28:59</div>
+                        </div>
+                        <div class="video-info">
+                            <h2 class="video-title" id="videoTitle">learn video editing in 25 minutes - Beginner Tutorial</h2>
+                            <p class="video-channel" id="videoChannel">Aftab Musrraf</p>
+                            <p class="video-meta" id="videoMeta">28:59 · 73 views · 2026</p>
+                        </div>
+                    </article>
+
+                    <!-- Right: Options Card -->
+                    <article class="card-options">
+                        <!-- Format Selection -->
+                        <div>
+                            <div class="section-label">FORMAT</div>
+                            <div class="format-buttons-row">
+                                <button class="format-btn active" id="btnFormatMp4" data-format="mp4">
+                                    <div class="format-icon-circle">
+                                        <svg viewBox="0 0 24 24">
+                                            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                        </svg>
+                                    </div>
+                                    <div class="format-btn-text">
+                                        <span class="format-name">MP4</span>
+                                        <span class="format-desc">(Video)</span>
+                                    </div>
+                                </button>
+                                <button class="format-btn" id="btnFormatMp3" data-format="mp3">
+                                    <div class="format-icon-circle">
+                                        <svg viewBox="0 0 24 24">
+                                            <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="format-btn-text">
+                                        <span class="format-name">MP3</span>
+                                        <span class="format-desc">(Audio)</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Quality Selection -->
+                        <div>
+                            <div class="section-label">QUALITY</div>
+                            <div class="quality-grid" id="qualityGrid">
+                                <button class="quality-pill active" data-quality="Best">Best</button>
+                                <button class="quality-pill" data-quality="1080p">1080p</button>
+                                <button class="quality-pill" data-quality="720p">720p</button>
+                                <button class="quality-pill" data-quality="480p">480p</button>
+                                <button class="quality-pill" data-quality="360p">360p</button>
+                                <button class="quality-pill" data-quality="240p">240p</button>
+                                <button class="quality-pill" data-quality="144p">144p</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Bottom Action Row -->
+                <section class="bottom-action-container">
+                    <button class="btn-download-import" id="btnDownload">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <polyline points="7 10 12 15 17 10" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3" stroke-linecap="round"></line>
+                        </svg>
+                        <span id="btnDownloadText">Download & Import</span>
+                    </button>
+
+                    <!-- Progress Bar Panel -->
+                    <div class="progress-panel" id="progressPanel">
+                        <div class="progress-header">
+                            <span class="progress-status" id="progressStatus">Downloading MP4...</span>
+                            <span class="progress-stats" id="progressStats">0% · 0 MB/s</span>
+                        </div>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" id="progressBarFill"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer class="main-footer">
+                    <div class="footer-inner">
+                        <p class="footer-credits">CREATED BY AFTAB MUSRRAF</p>
+                        <a href="https://www.youtube.com/@AftabMusrraf/videos" class="youtube-channel-link" id="btnOpenYouTube" target="_blank" rel="noopener noreferrer" title="Open Aftab Musrraf YouTube Channel in Chrome">
+                            <span class="youtube-icon-wrapper">
+                                <svg class="youtube-icon" viewBox="0 0 24 24">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                            </span>
+                            <span class="youtube-link-text">YouTube: <strong>@AftabMusrraf/videos</strong></span>
+                            <svg class="external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                <polyline points="15 3 21 3 21 9"></polyline>
+                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </footer>
+            </main>
+        </div>
+
+        <!-- Downloads / Library History Drawer -->
+        <aside class="history-drawer" id="historyDrawer">
+            <div class="history-header">
+                <h3>Downloaded Media</h3>
+                <button class="history-close-btn" id="btnCloseHistory">✕</button>
+            </div>
+            <div class="history-list" id="historyList">
+                <div class="history-item" data-path="">
+                    <span class="history-item-title">learn video editing in 25 minutes - Beginner Tutorial</span>
+                    <div class="history-item-meta">
+                        <span>MP4 · 1080p</span>
+                        <span class="history-item-action">Import to Comp ↗</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Status Toast -->
+        <div class="toast" id="toastNotification">
+            <span id="toastMessage">Ready</span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="./js/CSInterface.js"></script>
+    <script src="./js/downloader.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>
