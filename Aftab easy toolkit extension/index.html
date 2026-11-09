@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Toolkit</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Top Header -->
+    <header class="app-header">
+        <div class="title-area">
+            <span>Easy Toolkit</span>
+            <span class="menu-burger" title="Menu">&#8801;</span>
+        </div>
+        <div class="top-actions">
+            <button class="icon-btn-ghost" id="btnMoreMenu" title="Options">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="1.5"></circle>
+                    <circle cx="19" cy="12" r="1.5"></circle>
+                    <circle cx="5" cy="12" r="1.5"></circle>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-bar">
+        <div class="nav-tabs">
+            <!-- Animal Logo Silhouette -->
+            <button class="logo-btn" title="Easy Toolkit">
+                <svg class="logo-svg" viewBox="0 0 24 24">
+                    <path d="M4 17c1.5-2 3-3.5 5.5-3.5 0-3 1.5-7.5 4-9.5.5 1.5 1 3.5.5 5 2.5-1 4.5 0 5 1.5-1 1-1.5 2-1.5 3 2 1 3.5 3.5 4 6.5-2-.5-4-.5-5.5.5-2.5 0-4 1.5-5.5 3-1.5-2-3-4.5-6.5-6.5z"/>
+                </svg>
+            </button>
+
+            <!-- Edit Tab (Active) -->
+            <button class="nav-tab active" data-tab="edit">
+                <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                <span>Edit</span>
+            </button>
+
+            <!-- AI Tab -->
+            <button class="nav-tab" data-tab="ai">
+                <svg viewBox="0 0 24 24"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></svg>
+                <span>AI</span>
+            </button>
+
+            <!-- Presets Tab -->
+            <button class="nav-tab" data-tab="presets">
+                <svg viewBox="0 0 24 24"><path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                <span>Presets</span>
+            </button>
+
+            <!-- Utils Tab -->
+            <button class="nav-tab" data-tab="utils">
+                <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                <span>Utils</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="app-content">
+        <!-- 1. EDIT TAB PANE -->
+        <div class="tab-pane active" id="tab-edit">
+            <!-- Edit Tools Grid (Screenshot 800) -->
+            <div class="tools-grid" id="editGrid">
+                <!-- Curves -->
+                <div class="tool-card" id="toolCurves" title="Bezier Curves Editor">
+                    <span class="chevron-badge">&gt;</span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M4 20 C 10 20, 14 4, 20 4" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <span class="card-label">Curves</span>
+                </div>
+
+                <!-- Text -->
+                <div class="tool-card" id="toolText" title="Create Centered Text Layer">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M5 6h14M12 6v13" stroke-width="2.2" stroke-linecap="round"/></svg>
+                    </div>
+                    <span class="card-label">Text</span>
+                </div>
+
+                <!-- Precomp -->
+                <div class="tool-card" id="toolPrecomp" title="Precompose Selected Layers">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.8"/>
+                            <rect x="7" y="7" width="10" height="10" rx="1" stroke-width="1.8"/>
+                        </svg>
+                    </div>
+                    <span class="card-label">Precomp</span>
+                </div>
+
+                <!-- Precomp each -->
+                <div class="tool-card" id="toolPrecompEach" title="Precompose Each Selected Layer Individually">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="5" width="8" height="14" rx="1" stroke-width="1.8"/>
+                            <rect x="13" y="5" width="8" height="14" rx="1" stroke-width="1.8"/>
+                        </svg>
+                    </div>
+                    <span class="card-label"><span>Precomp</span><span>each</span></span>
+                </div>
+
+                <!-- Decomp -->
+                <div class="tool-card" id="toolDecomp" title="Decompose Precomp Layers into Comp">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="7" y="7" width="12" height="12" rx="2" stroke-width="1.8"/>
+                            <path d="M5 15H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v2" stroke-width="1.8"/>
+                            <path d="M9 13l-4 4m0 0h3m-3 0v-3" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <span class="card-label">Decomp</span>
+                </div>
+
+                <!-- Copy fx -->
+                <div class="tool-card" id="toolCopyFx" title="Copy Layer Effects">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="8" y="8" width="12" height="12" rx="2" stroke-width="1.8"/>
+                            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" stroke-width="1.8"/>
+                        </svg>
+                    </div>
+                    <span class="card-label"><span>Copy</span><span>fx</span></span>
+                </div>
+
+                <!-- Paste fx -->
+                <div class="tool-card" id="toolPasteFx" title="Paste Effects to Selected Layers">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" stroke-width="1.8"/>
+                            <rect x="8" y="2" width="8" height="4" rx="1" stroke-width="1.8"/>
+                        </svg>
+                    </div>
+                    <span class="card-label"><span>Paste</span><span>fx</span></span>
+                </div>
+
+                <!-- Duplicate -->
+                <div class="tool-card" id="toolDuplicate" title="Duplicate Layer(s)">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="8" y="8" width="13" height="13" rx="2" stroke-width="1.8"/>
+                            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" stroke-width="1.8"/>
+                            <path d="M14.5 11.5v6M11.5 14.5h6" stroke-width="1.8" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <span class="card-label">Duplicate</span>
+                </div>
+
+                <!-- Null -->
+                <div class="tool-card" id="toolNull" title="Create Null Object">
+                    <div class="icon-wrapper">
+                        <div class="null-box"></div>
+                    </div>
+                    <span class="card-label">Null</span>
+                </div>
+
+                <!-- Solid -->
+                <div class="tool-card" id="toolSolid" title="Create Solid Layer">
+                    <div class="icon-wrapper">
+                        <div class="solid-box"></div>
+                    </div>
+                    <span class="card-label">Solid</span>
+                </div>
+
+                <!-- Adjust (Row 2, placed directly under Curves) -->
+                <div class="tool-card" id="toolAdjust" title="Create Adjustment Layer">
+                    <div class="icon-wrapper">
+                        <div class="adjust-box"></div>
+                    </div>
+                    <span class="card-label">Adjust</span>
+                </div>
+            </div>
+
+            <!-- Curves Sub-View (Screenshot 801) -->
+            <div class="curves-view" id="curvesView" style="display: none;">
+                <!-- Header with back button -->
+                <div class="curves-header">
+                    <button class="btn-back" id="btnBackCurves" title="Back to Edit tools">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+                    </button>
+                    <div class="curves-title-pill">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 20 C 10 20, 14 4, 20 4"/></svg>
+                        <span>Curves</span>
+                    </div>
+                </div>
+
+                <!-- Curve Controls Bar -->
+                <div class="curve-controls-bar">
+                    <div class="curve-info-left">
+                        <span class="curve-name-badge" id="curvePresetName">Expo In</span>
+                        <div class="mode-toggle-group">
+                            <button class="mode-btn active" id="modeValue">Value</button>
+                            <button class="mode-btn" id="modeSpeed">Speed</button>
+                        </div>
+                    </div>
+                    <div class="bezier-coords-text" id="curveCoordsText">0.7, 0, 0.84, 0</div>
+                </div>
+
+                <!-- Curve Canvas Graph Container -->
+                <div class="curve-graph-container">
+                    <canvas id="curveCanvas"></canvas>
+                    <div class="graph-floating-tools">
+                        <button class="graph-tool-btn" id="btnFlipCurve" title="Flip Curve">&#8646;</button>
+                        <button class="graph-tool-btn" id="btnResetCurve" title="Reset Curve">Q 100%</button>
+                        <button class="graph-tool-btn" id="btnInvertCurve" title="Invert Curve">&#8645;</button>
+                    </div>
+                </div>
+
+                <!-- Curve Action Buttons -->
+                <div class="curve-actions-row">
+                    <button class="btn-apply-curve" id="btnApplyCurve" title="Apply curve to selected AE keyframes">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M4 20 C 10 20, 14 4, 20 4" stroke-width="2.5" stroke-linecap="round"/></svg>
+                        <span>Apply</span>
+                    </button>
+                    <button class="btn-read-keys" id="btnReadKeys" title="Read ease from selected keyframe">
+                        <svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        <span>Read keys</span>
+                    </button>
+                    <button class="btn-add-curve" id="btnAddCurve" title="Save custom curve preset">+</button>
+                </div>
+
+                <!-- Curve Presets Grid -->
+                <div class="curve-presets-scroll">
+                    <div class="curve-presets-grid" id="curvePresetsGrid"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. AI TAB PANE (Screenshot 803) -->
+        <div class="tab-pane" id="tab-ai">
+            <div class="tools-grid">
+                <!-- Captions -->
+                <div class="tool-card" id="toolAICaptions" title="Smart Caption Generator">
+                    <span class="chevron-badge">&gt;</span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" stroke-width="1.8"/><line x1="7" y1="13" x2="17" y2="13" stroke-width="2"/><line x1="7" y1="9" x2="13" y2="9" stroke-width="2"/></svg>
+                    </div>
+                    <span class="card-label">Captions</span>
+                </div>
+
+                <!-- Beat -->
+                <div class="tool-card" id="toolAIBeat" title="Audio Beat Detection & Pulse Markers">
+                    <span class="chevron-badge">&gt;</span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M2 10v4M6 6v12M10 3v18M14 8v8M18 5v14M22 10v4" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <span class="card-label">Beat</span>
+                </div>
+
+                <!-- Mask -->
+                <div class="tool-card" id="toolAIMask" title="Auto Subject Mask & Vignette">
+                    <span class="chevron-badge">&gt;</span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M7 3H5a2 2 0 0 0-2 2v2M17 3h2a2 2 0 0 1 2 2v2M7 21H5a2 2 0 0 1-2-2v-2M17 21h2a2 2 0 0 0 2-2v-2" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke-width="1.8"/></svg>
+                    </div>
+                    <span class="card-label">Mask</span>
+                </div>
+
+                <!-- Voice -->
+                <div class="tool-card" id="toolAIVoice" title="Voiceover & Speech Track Aligner">
+                    <span class="chevron-badge">&gt;</span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" stroke-width="1.8"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v3M8 22h8" stroke-width="1.8" stroke-linecap="round"/></svg>
+                    </div>
+                    <span class="card-label">Voice</span>
+                </div>
+
+                <!-- Bounce -->
+                <div class="tool-card" id="toolAIBounce" title="Inertial Elastic Bounce Expression">
+                    <span class="chevron-badge">&gt;</span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M2 17c3 0 4-13 7-13s4 9 7 9 3-4 6-4" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <span class="card-label">Bounce</span>
+                </div>
+
+                <!-- Text Kinetic -->
+                <div class="tool-card" id="toolAIText" title="Kinetic Typography & Typewriter">
+                    <span class="chevron-badge">&gt;</span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M4 7V4h16v3M9 20h6M12 4v16" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <span class="card-label">Text</span>
+                </div>
+
+                <!-- Fluid -->
+                <div class="tool-card" id="toolAIFluid" title="Fluid Organic Wave Motion">
+                    <span class="chevron-badge">&gt;</span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M2 12c4-5 6 5 10 0s6 5 10 0M2 17c4-5 6 5 10 0s6 5 10 0" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <span class="card-label">Fluid</span>
+                </div>
+
+                <!-- Face -->
+                <div class="tool-card" id="toolAIFace" title="Face Tracking Target Null">
+                    <span class="chevron-badge">&gt;</span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke-width="1.8"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <span class="card-label">Face</span>
+                </div>
+
+                <!-- Relight -->
+                <div class="tool-card" id="toolAIRelight" title="Cinematic 3-Point Light Rig">
+                    <span class="chevron-badge">&gt;</span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke-width="2"/></svg>
+                    </div>
+                    <span class="card-label">Relight</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. PRESETS TAB PANE (Screenshot 804) -->
+        <div class="tab-pane" id="tab-presets">
+            <div class="presets-view">
+                <!-- Sub bar -->
+                <div class="presets-subbar">
+                    <div class="presets-title-wrap">
+                        <svg viewBox="0 0 24 24"><path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                        <span>Presets</span>
+                    </div>
+                    <div class="presets-actions-right">
+                        <button class="btn-subbar-icon" id="btnPresetFolder" title="Open Presets Folder">
+                            <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                        </button>
+                        <button class="btn-subbar-icon" id="btnNewFolder" title="Create Preset Folder">
+                            <svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path><line x1="12" y1="11" x2="12" y2="17"></line><line x1="9" y1="14" x2="15" y2="14"></line></svg>
+                        </button>
+                        <button class="btn-pill-save" id="btnSavePreset" title="Save Selected AE Properties as Preset">
+                            <span>+ Save</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Info card (matching Screenshot 804) -->
+                <div class="presets-tooltip-card">
+                    <h4>Presets</h4>
+                    <p>Your own effects, expressions, text looks and layers, in folders</p>
+                </div>
+
+                <!-- Empty State Container (Screenshot 804) -->
+                <div class="presets-empty-container" id="presetsEmptyState">
+                    <div class="presets-empty-title">No presets yet</div>
+                    <div class="presets-empty-description">
+                        In the timeline, select what to keep: effects, a text animator, properties with their keyframes... or whole layers and precomps. Then click <strong>Save</strong>. Click a preset to apply it, <strong>AE</strong> to save it in After Effects too.
+                    </div>
+                </div>
+
+                <!-- Presets List (Shown when presets exist) -->
+                <div class="saved-presets-list" id="presetsListContainer" style="display: none;"></div>
+            </div>
+        </div>
+
+        <!-- 4. UTILS TAB PANE (Screenshot 805) -->
+        <div class="tab-pane" id="tab-utils">
+            <div class="tools-grid">
+                <!-- Render -->
+                <div class="tool-card" id="toolRender" title="Quick Render Queue & Snapshot">
+                    <span class="chevron-badge">&gt;</span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="18" rx="2" stroke-width="1.8"/><polygon points="10 8 16 12 10 16 10 8" stroke-width="1.5" fill="currentColor"/></svg>
+                    </div>
+                    <span class="card-label">Render</span>
+                </div>
+
+                <!-- Paste image -->
+                <div class="tool-card" id="toolPasteImage" title="Paste Image from Clipboard directly into Comp">
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" stroke-width="1.8"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21" stroke-width="1.8"/></svg>
+                    </div>
+                    <span class="card-label"><span>Paste</span><span>image</span></span>
+                </div>
+
+                <!-- Link -->
+                <div class="tool-card" id="toolLink" title="Link Properties & Master Controller">
+                    <span class="chevron-badge">&gt;</span>
+                    <div class="icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke-width="2" stroke-linecap="round"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                    <span class="card-label">Link</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Action Button (+) -->
+        <button class="fab-button" id="fabBtn" title="Quick Add">
+            <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+
+        <!-- Floating FAB Popup Menu -->
+        <div class="fab-menu" id="fabMenu">
+            <button class="fab-item" data-action="add-text">
+                <span>&#9998; Add Text Layer</span>
+            </button>
+            <button class="fab-item" data-action="add-null">
+                <span>&#9634; Add Null Object</span>
+            </button>
+            <button class="fab-item" data-action="add-solid">
+                <span>&#9632; Add Purple Solid</span>
+            </button>
+            <button class="fab-item" data-action="add-adjust">
+                <span>&#9680; Add Adjustment Layer</span>
+            </button>
+        </div>
+    </main>
+
+    <!-- Bottom Status Bar -->
+    <footer class="app-statusbar">
+        <div class="status-left">
+            <div class="status-dot" id="statusDot"></div>
+            <span class="status-text" id="statusText">Ready</span>
+        </div>
+        <div class="status-right">
+            <button class="btn-status-undo" id="btnUndo" style="display: none;" title="Undo Last Operation">Undo</button>
+            <span class="comp-name-badge" id="compNameBadge">Comp 1</span>
+            <span class="status-lock-icon" title="Composition Lock / Link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+            </span>
+        </div>
+    </footer>
+
+    <!-- MODALS -->
+
+    <!-- Modal: Save Custom Curve Preset -->
+    <div class="modal-overlay" id="modalSaveCurve">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3>Save Curve Preset</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <label>Preset Name</label>
+                    <input type="text" class="input-field" id="inputCurveName" placeholder="e.g. Dynamic Snap" value="Dynamic Snap">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary btn-modal-cancel">Cancel</button>
+                <button class="btn-primary" id="btnConfirmSaveCurve">Save Preset</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Save Layer Preset -->
+    <div class="modal-overlay" id="modalSavePreset">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3>Save Layer Preset</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <label>Preset Name</label>
+                    <input type="text" class="input-field" id="inputPresetName" placeholder="e.g. Title Pop In" value="Title Pop In">
+                </div>
+                <div class="input-group">
+                    <label>Folder / Category</label>
+                    <input type="text" class="input-field" id="inputPresetCategory" placeholder="e.g. Text Looks" value="Text Looks">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary btn-modal-cancel">Cancel</button>
+                <button class="btn-primary" id="btnConfirmSavePreset">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: AI Captions -->
+    <div class="modal-overlay" id="modalAICaptions">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3>AI Captions Generator</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <label>Caption Text / Voice Script</label>
+                    <textarea class="input-field" id="inputCaptionsText" rows="3" style="resize: vertical;">Create high-impact captions with Easy Toolkit in After Effects</textarea>
+                </div>
+                <p style="font-size: 10px; color: var(--text-muted);">
+                    Generates synchronized text layers with animated bounce and stroke highlights.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary btn-modal-cancel">Cancel</button>
+                <button class="btn-primary" id="btnConfirmAICaptions">Generate</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: AI Inertial Bounce -->
+    <div class="modal-overlay" id="modalAIBounce">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3>Inertial Bounce</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <label>Frequency (Bounces / sec)</label>
+                    <input type="number" step="0.5" class="input-field" id="inputBounceFreq" value="3.0">
+                </div>
+                <div class="input-group">
+                    <label>Decay (Damping factor)</label>
+                    <input type="number" step="0.5" class="input-field" id="inputBounceDecay" value="5.0">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary btn-modal-cancel">Cancel</button>
+                <button class="btn-primary" id="btnConfirmAIBounce">Apply Bounce</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: AI Kinetic Text -->
+    <div class="modal-overlay" id="modalAIText">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3>Kinetic Text Animator</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <label>Animation Style</label>
+                    <select class="input-field" id="selectKineticStyle">
+                        <option value="stagger">Stagger Fade & Rise</option>
+                        <option value="typewriter">Typewriter with Cursor</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary btn-modal-cancel">Cancel</button>
+                <button class="btn-primary" id="btnConfirmAIText">Apply Style</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Quick Render Queue -->
+    <div class="modal-overlay" id="modalRenderQueue">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3>Quick Render</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 10.5px; color: var(--text-secondary); margin-bottom: 8px;">
+                    Send current comp to Render Queue or save an instant PNG frame snapshot.
+                </p>
+                <button class="btn-primary" id="btnConfirmRender" style="width: 100%; margin-bottom: 6px;">Add Comp to Render Queue</button>
+                <button class="btn-secondary" id="btnConfirmSnapshot" style="width: 100%;">Snapshot Current Frame to Desktop</button>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary btn-modal-cancel">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Settings / Info -->
+    <div class="modal-overlay" id="modalSettings">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3>Easy Toolkit Settings</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.6;">
+                    <p><strong>Extension:</strong> Easy Toolkit (v1.0.0)</p>
+                    <p><strong>Theme:</strong> Neon Purple Aesthetic</p>
+                    <p><strong>Compatibility:</strong> After Effects CC 2015 &ndash; CC 2026+</p>
+                    <p><strong>Host Engine:</strong> CEP 6 &ndash; 12+ / ExtendScript ES3</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary btn-modal-cancel">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/CSInterface.js"></script>
+    <script src="js/curves.js"></script>
+    <script src="js/presets.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

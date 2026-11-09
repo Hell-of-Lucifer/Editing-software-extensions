@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionManifest Version="7.0" ExtensionBundleId="com.aftab.easytoolkit" ExtensionBundleVersion="1.0.0"
+    ExtensionBundleName="Easy Toolkit" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ExtensionList>
+        <Extension Id="com.aftab.easytoolkit.panel" Version="1.0.0" />
+    </ExtensionList>
+    <ExecutionEnvironment>
+        <HostList>
+            <!-- Supports all After Effects versions from CC 2015 (13.0) up to 2026+ (99.9) -->
+            <Host Name="AEFT" Version="[13.0,99.9]" />
+        </HostList>
+        <LocaleList>
+            <Locale Code="All" />
+        </LocaleList>
+        <RequiredRuntimeList>
+            <RequiredRuntime Name="CSXS" Version="6.0" />
+        </RequiredRuntimeList>
+    </ExecutionEnvironment>
+    <DispatchInfoList>
+        <Extension Id="com.aftab.easytoolkit.panel">
+            <DispatchInfo>
+                <Resources>
+                    <MainPath>./index.html</MainPath>
+                    <ScriptPath>./jsx/hostscript.jsx</ScriptPath>
+                    <CEFCommandLine>
+                        <Parameter>--enable-nodejs</Parameter>
+                        <Parameter>--mixed-context</Parameter>
+                        <Parameter>--allow-file-access-from-files</Parameter>
+                    </CEFCommandLine>
+                </Resources>
+                <Lifecycle>
+                    <AutoVisible>true</AutoVisible>
+                </Lifecycle>
+                <UI>
+                    <Type>Panel</Type>
+                    <Menu>Easy Toolkit</Menu>
+                    <Geometry>
+                        <Size>
+                            <Height>450</Height>
+                            <Width>620</Width>
+                        </Size>
+                        <MinSize>
+                            <Height>320</Height>
+                            <Width>380</Width>
+                        </MinSize>
+                        <MaxSize>
+                            <Height>1440</Height>
+                            <Width>2560</Width>
+                        </MaxSize>
+                    </Geometry>
+                    <Icons>
+                        <Icon Type="Normal">./assets/icon-normal.png</Icon>
+                        <Icon Type="RollOver">./assets/icon-normal.png</Icon>
+                        <Icon Type="Disabled">./assets/icon-normal.png</Icon>
+                        <Icon Type="DarkNormal">./assets/icon-normal.png</Icon>
+                        <Icon Type="DarkRollOver">./assets/icon-normal.png</Icon>
+                    </Icons>
+                </UI>
+            </DispatchInfo>
+        </Extension>
+    </DispatchInfoList>
+</ExtensionManifest>
