@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionManifest Version="6.0" ExtensionBundleId="com.aftab.aecasemaster" ExtensionBundleVersion="1.0.0"
+    ExtensionBundleName="AE Case Master" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ExtensionList>
+        <Extension Id="com.aftab.aecasemaster.panel" Version="1.0.0" />
+    </ExtensionList>
+    <ExecutionEnvironment>
+        <HostList>
+            <!-- AEFT: Adobe After Effects CC 2014 (12.0) all the way through CC 2026+ (99.9) -->
+            <Host Name="AEFT" Version="[12.0,99.9]" />
+        </HostList>
+        <LocaleList>
+            <Locale Code="All" />
+        </LocaleList>
+        <RequiredRuntimeList>
+            <RequiredRuntime Name="CSXS" Version="5.0" />
+        </RequiredRuntimeList>
+    </ExecutionEnvironment>
+    <DispatchInfoList>
+        <Extension Id="com.aftab.aecasemaster.panel">
+            <DispatchInfo>
+                <Resources>
+                    <MainPath>./index.html</MainPath>
+                    <ScriptPath>./jsx/hostscript.jsx</ScriptPath>
+                    <CEPEngine>
+                        <CommandLine>
+                            <Argument>--enable-nodejs</Argument>
+                            <Argument>--mixed-context</Argument>
+                        </CommandLine>
+                    </CEPEngine>
+                </Resources>
+                <Lifecycle>
+                    <AutoVisible>true</AutoVisible>
+                </Lifecycle>
+                <UI>
+                    <Type>Panel</Type>
+                    <Menu>AE Case Master</Menu>
+                    <Geometry>
+                        <Size>
+                            <Width>820</Width>
+                            <Height>580</Height>
+                        </Size>
+                        <MinSize>
+                            <Width>360</Width>
+                            <Height>420</Height>
+                        </MinSize>
+                        <MaxSize>
+                            <Width>2560</Width>
+                            <Height>1440</Height>
+                        </MaxSize>
+                    </Geometry>
+                </UI>
+            </DispatchInfo>
+        </Extension>
+    </DispatchInfoList>
+</ExtensionManifest>

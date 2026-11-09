@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AE Case Master</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top App Header -->
+        <header class="app-header">
+            <div class="title-bar">
+                <div class="traffic-dots">
+                    <span class="dot dot-yellow" title="AE Case Master"></span>
+                    <span class="dot dot-white"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <h1 class="main-title">AE CASE MASTER</h1>
+                <div class="title-spacer"></div>
+            </div>
+            <div class="meta-bar">
+                <div class="meta-creator">CREATED BY AFTAB MUSRRAF</div>
+                <div class="pro-badge" id="pro-badge" title="AE Case Master Pro Active">
+                    <span class="pro-text">PRO</span>
+                    <span class="pro-indicator"></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Panel Content -->
+        <main class="main-panel">
+            <div class="columns-wrapper">
+                
+                <!-- Left Column: Case Tools & Text Utilities -->
+                <section class="column-left">
+                    <!-- Case Tools Section -->
+                    <div class="section-block">
+                        <div class="section-header">
+                            <h2 class="section-title">CASE TOOLS</h2>
+                            <p class="section-desc">Transform selected text instantly</p>
+                        </div>
+                        <div class="case-grid">
+                            <!-- Sentence Case -->
+                            <button type="button" class="case-card" id="btn-case-sentence" data-case="sentence" title="Sentence Case: Capitalizes first letter of each sentence">
+                                <div class="case-badge badge-sc">Sc</div>
+                                <div class="case-label">
+                                    <span class="case-label-line">Sentence</span>
+                                    <span class="case-label-line">Case</span>
+                                </div>
+                            </button>
+
+                            <!-- Lower Case -->
+                            <button type="button" class="case-card" id="btn-case-lower" data-case="lower" title="Lower Case: Converts all characters to lowercase">
+                                <div class="case-badge badge-lc">lc</div>
+                                <div class="case-label">
+                                    <span class="case-label-line">lower</span>
+                                    <span class="case-label-line">case</span>
+                                </div>
+                            </button>
+
+                            <!-- Upper Case -->
+                            <button type="button" class="case-card" id="btn-case-upper" data-case="upper" title="Upper Case: Converts all characters to UPPERCASE">
+                                <div class="case-badge badge-uc">UC</div>
+                                <div class="case-label">
+                                    <span class="case-label-line">UPPER</span>
+                                    <span class="case-label-line">CASE</span>
+                                </div>
+                            </button>
+
+                            <!-- Alternating Case -->
+                            <button type="button" class="case-card" id="btn-case-alternating" data-case="alternating" title="Alternating Case: aLtErNaTiNg CaSe">
+                                <div class="case-badge badge-ac">aC</div>
+                                <div class="case-label">
+                                    <span class="case-label-line">aLtErNaTiNg</span>
+                                    <span class="case-label-line">CaSe</span>
+                                </div>
+                            </button>
+
+                            <!-- Title Case -->
+                            <button type="button" class="case-card" id="btn-case-title" data-case="title" title="Title Case: Capitalizes first letter of each word">
+                                <div class="case-badge badge-tc">TC</div>
+                                <div class="case-label">
+                                    <span class="case-label-line">Title</span>
+                                    <span class="case-label-line">Case</span>
+                                </div>
+                            </button>
+
+                            <!-- Inverse Case -->
+                            <button type="button" class="case-card" id="btn-case-inverse" data-case="inverse" title="Inverse Case: InVeRsE CaSe (swaps uppercase & lowercase)">
+                                <div class="case-badge badge-ic">iC</div>
+                                <div class="case-label">
+                                    <span class="case-label-line">InVeRsE</span>
+                                    <span class="case-label-line">CaSe</span>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Text Utilities Section -->
+                    <div class="section-block">
+                        <div class="section-header">
+                            <h2 class="section-title">TEXT UTILITIES</h2>
+                            <p class="section-desc">Clean, split and optimize text layers</p>
+                        </div>
+                        <div class="utilities-grid">
+                            <button type="button" class="btn-utility" id="btn-util-trim" data-util="trim" title="Trim Spaces: Removes leading/trailing spaces and collapses double spaces">
+                                Trim Spaces
+                            </button>
+                            <button type="button" class="btn-utility" id="btn-util-breaks" data-util="removeBreaks" title="Remove Breaks: Merges multi-line text into a single line">
+                                Remove Breaks
+                            </button>
+                            <button type="button" class="btn-utility" id="btn-util-split" data-util="splitLines" title="Split Lines: Splits multi-line text into separate individual layers">
+                                Split Lines
+                            </button>
+                            <button type="button" class="btn-utility" id="btn-util-merge" data-util="mergeLines" title="Merge Lines: Merges selected text layers into one layer">
+                                Merge Lines
+                            </button>
+                            <button type="button" class="btn-utility" id="btn-util-duplicate" data-util="duplicateText" title="Duplicate Text: Creates an exact duplicate of selected text layer(s)">
+                                Duplicate Text
+                            </button>
+                            <button type="button" class="btn-utility" id="btn-util-sort" data-util="sortLines" title="Sort Lines: Sorts lines alphabetically">
+                                Sort Lines
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Right Column: Align & Distribute & Quick Actions -->
+                <section class="column-right">
+                    <!-- Align & Distribute Section -->
+                    <div class="section-block">
+                        <div class="section-header">
+                            <h2 class="section-title">ALIGN & DISTRIBUTE</h2>
+                            <p class="section-desc">Precise positioning for selected layers</p>
+                        </div>
+                        <div class="align-box">
+                            <div class="align-row-1">
+                                <!-- Align Left -->
+                                <button type="button" class="btn-align" id="btn-align-left" data-align="left" title="Align Left: Align selected layers to the left">
+                                    <svg class="align-icon" viewBox="0 0 24 24">
+                                        <line x1="4" y1="4" x2="4" y2="20"></line>
+                                        <line x1="4" y1="8" x2="16" y2="8"></line>
+                                        <line x1="4" y1="16" x2="20" y2="16"></line>
+                                    </svg>
+                                    <span>LEFT</span>
+                                </button>
+
+                                <!-- Align Center -->
+                                <button type="button" class="btn-align" id="btn-align-center" data-align="center" title="Align Center: Align selected layers to center">
+                                    <svg class="align-icon" viewBox="0 0 24 24">
+                                        <line x1="12" y1="3" x2="12" y2="21"></line>
+                                        <line x1="6" y1="8" x2="18" y2="8"></line>
+                                        <line x1="4" y1="16" x2="20" y2="16"></line>
+                                    </svg>
+                                    <span>CENTER</span>
+                                </button>
+
+                                <!-- Align Right -->
+                                <button type="button" class="btn-align" id="btn-align-right" data-align="right" title="Align Right: Align selected layers to the right">
+                                    <svg class="align-icon" viewBox="0 0 24 24">
+                                        <line x1="20" y1="4" x2="20" y2="20"></line>
+                                        <line x1="8" y1="8" x2="20" y2="8"></line>
+                                        <line x1="4" y1="16" x2="20" y2="16"></line>
+                                    </svg>
+                                    <span>RIGHT</span>
+                                </button>
+
+                                <!-- Justify / Distribute -->
+                                <button type="button" class="btn-align" id="btn-align-justify" data-align="justify" title="Justify: Distribute layers horizontally evenly">
+                                    <svg class="align-icon" viewBox="0 0 24 24">
+                                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                                        <line x1="4" y1="7" x2="4" y2="17"></line>
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="20" y1="7" x2="20" y2="17"></line>
+                                    </svg>
+                                    <span>JUSTIFY</span>
+                                </button>
+                            </div>
+
+                            <div class="align-row-2">
+                                <button type="button" class="btn-align" id="btn-align-top" data-align="top" title="Align Top">
+                                    TOP
+                                </button>
+                                <button type="button" class="btn-align" id="btn-align-middle" data-align="middle" title="Align Middle">
+                                    MIDDLE
+                                </button>
+                                <button type="button" class="btn-align" id="btn-align-bottom" data-align="bottom" title="Align Bottom">
+                                    BOTTOM
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions Section -->
+                    <div class="section-block">
+                        <div class="section-header">
+                            <h2 class="section-title">QUICK ACTIONS</h2>
+                            <p class="section-desc">Useful shortcuts for daily editing</p>
+                        </div>
+                        <div class="quick-grid">
+                            <button type="button" class="btn-quick" id="btn-quick-select-all" data-quick="selectAllText" title="Select All Text Layers in Active Comp">
+                                Select All Text Layers
+                            </button>
+                            <button type="button" class="btn-quick" id="btn-quick-rename" data-quick="renameModal" title="Rename Layers: Batch rename or rename to text content">
+                                Rename Layers
+                            </button>
+                            <button type="button" class="btn-quick" id="btn-quick-center-anchor" data-quick="centerAnchor" title="Center Anchor Point to visual center of selected layer(s)">
+                                Center Anchor Point
+                            </button>
+                            <button type="button" class="btn-quick" id="btn-quick-reset-transform" data-quick="resetTransform" title="Reset Transform (Position, Scale, Rotation, Opacity, Anchor)">
+                                Reset Transform
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-text">AE CASE MASTER • CREATED BY AFTAB MUSRRAF</div>
+            <a href="javascript:void(0);" class="youtube-link" id="youtube-link" role="button" aria-label="Visit Aftab Musrraf on YouTube" title="Visit Aftab Musrraf on YouTube" data-url="https://www.youtube.com/@AftabMusrraf">
+                <svg class="youtube-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                <span class="youtube-text">YouTube: @AftabMusrraf</span>
+            </a>
+        </footer>
+    </div>
+
+    <!-- Rename Layers Interactive Modal -->
+    <div class="modal-overlay" id="rename-modal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <span class="modal-title">Rename Selected Layers</span>
+                <button type="button" class="modal-close" id="modal-close-btn">&times;</button>
+            </div>
+            <div class="modal-tabs">
+                <button type="button" class="modal-tab active" data-mode="toText">To Text</button>
+                <button type="button" class="modal-tab" data-mode="prefix">Prefix</button>
+                <button type="button" class="modal-tab" data-mode="suffix">Suffix</button>
+                <button type="button" class="modal-tab" data-mode="replace">Replace</button>
+                <button type="button" class="modal-tab" data-mode="sequence">Sequence</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Dynamic inputs loaded by JS -->
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" id="modal-cancel-btn">Cancel</button>
+                <button type="button" class="btn-primary" id="modal-apply-btn">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-container" id="toast">
+        <span class="toast-icon" id="toast-icon">✓</span>
+        <span class="toast-message" id="toast-message">Action completed</span>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/CSInterface.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
