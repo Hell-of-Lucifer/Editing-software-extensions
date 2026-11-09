@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionManifest Version="7.0" ExtensionBundleId="com.motionvibe.light" ExtensionBundleVersion="1.0.0"
+    ExtensionBundleName="Motion Vibe Light" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ExtensionList>
+        <Extension Id="com.motionvibe.light.panel" Version="1.0.0" />
+    </ExtensionList>
+    <ExecutionEnvironment>
+        <HostList>
+            <!-- After Effects -->
+            <Host Name="AEFT" Version="[14.0,99.9]" />
+            <!-- Premiere Pro -->
+            <Host Name="PPRO" Version="[12.0,99.9]" />
+        </HostList>
+        <LocaleList>
+            <Locale Code="All" />
+        </LocaleList>
+        <RequiredRuntimeList>
+            <RequiredRuntime Name="CSXS" Version="7.0" />
+        </RequiredRuntimeList>
+    </ExecutionEnvironment>
+    <DispatchInfoList>
+        <Extension Id="com.motionvibe.light.panel">
+            <DispatchInfo>
+                <Resources>
+                    <MainPath>./index.html</MainPath>
+                    <ScriptPath>./jsx/hostscript.jsx</ScriptPath>
+                    <CEPEngine>
+                        <CommandLine>
+                            <Argument>--enable-nodejs</Argument>
+                            <Argument>--mixed-context</Argument>
+                        </CommandLine>
+                    </CEPEngine>
+                </Resources>
+                <Lifecycle>
+                    <AutoVisible>true</AutoVisible>
+                </Lifecycle>
+                <UI>
+                    <Type>Panel</Type>
+                    <Menu>Motion Vibe Light</Menu>
+                    <Geometry>
+                        <Size>
+                            <Height>820</Height>
+                            <Width>960</Width>
+                        </Size>
+                        <MinSize>
+                            <Height>500</Height>
+                            <Width>550</Width>
+                        </MinSize>
+                        <MaxSize>
+                            <Height>2160</Height>
+                            <Width>3840</Width>
+                        </MaxSize>
+                    </Geometry>
+                    <Icons>
+                        <Icon Type="Normal">./assets/icons/icon-normal.png</Icon>
+                        <Icon Type="RollOver">./assets/icons/icon-normal.png</Icon>
+                        <Icon Type="DarkNormal">./assets/icons/icon-normal.png</Icon>
+                        <Icon Type="DarkRollOver">./assets/icons/icon-normal.png</Icon>
+                    </Icons>
+                </UI>
+            </DispatchInfo>
+        </Extension>
+    </DispatchInfoList>
+</ExtensionManifest>
